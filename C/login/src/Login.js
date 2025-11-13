@@ -3,7 +3,7 @@ import { useState } from "react";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [forgotPassword, setForgotPassword] = useState(false);
+  const [resetMessage, setResetMessage] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
@@ -54,6 +54,7 @@ function Login() {
    */
   const handleLogin = (e) => {
     e.preventDefault();
+    setResetMessage("");
     const emailErr = validateEmail(email);
     const passErr = validatePassword(password);
 
@@ -70,6 +71,19 @@ function Login() {
     setPassword("");
     setEmailError("");
     setPasswordError("");
+    setResetMessage("");
+  };
+
+  const handleForgotPassword = () => {
+    const err = validateEmail(email);
+    setEmailError(err);
+
+    if (err) {
+      setResetMessage("");
+      return;
+    }
+
+    setResetMessage(`Reset link sent to ${email}`);
   };
 
   return (
@@ -87,7 +101,6 @@ function Login() {
           maxWidth: "400px", 
           margin: "50px auto", 
           padding: "30px", 
-          borderRadius: "10px", 
           textAlign: "center",
           fontFamily: "Arial, sans-serif",
           borderRadius: "10px",
@@ -183,7 +196,20 @@ function Login() {
             >
               Login
             </button>
-            <p onClick={() => setForgotPassword(true)}>Forgot password?</p>
+            <p 
+              style={{
+                color: "green",
+                cursor: "pointer",
+                marginTop: "12px",
+              }}
+              onClick={() => handleForgotPassword}>Forgot password?</p>
+
+            {resetMessage && (
+              <div style={{ color: "green", marginTop: "10px", fontSize: "0.9rem" }}>
+                {resetMessage}
+              </div>
+            )}
+
           </form>        
         )}
       </div>
