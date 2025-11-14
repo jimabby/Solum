@@ -1,6 +1,44 @@
-# Getting Started with Create React App
+# Solum – React Login System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A responsive React login system featuring inline styling, form validation, password rules, and a simple forgot-password flow.  
+This project is fully client-side and designed for demonstration/testing purposes.
+
+## 🚀 Features
+
+### 🔐 Login Functionality
+- Email validation:
+  - Required  
+  - Must match email format  
+  - Must exist in predefined list  
+- Password validation:
+  - 8–16 characters  
+  - At least one uppercase letter  
+  - At least one lowercase letter  
+  - At least one number  
+  - At least one symbol  
+
+### 🔄 Forgot Password
+- Optional "Forgot password?" link  
+- Validates email  
+- Displays: **"Reset link sent to \<email\>"** if email exists  
+
+### 👋 After Login
+- Login form hides  
+- Displays **Welcome, [user email]!**  
+- Logout button returns user to login screen  
+
+### 📱 Responsive Design
+- Works smoothly on desktop and mobile  
+- Scales automatically with screen size  
+- No external CSS — *everything uses inline styles*
+
+---
+
+## 🧰 Tech Stack
+
+- **React** (Create React App or Vite)
+- **JavaScript (ES6+)**
+- **Inline CSS styles only**
 
 ## Available Scripts
 

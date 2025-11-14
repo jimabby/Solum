@@ -202,7 +202,7 @@ function Login() {
                 cursor: "pointer",
                 marginTop: "12px",
               }}
-              onClick={() => handleForgotPassword}>Forgot password?</p>
+              onClick={handleForgotPassword}>Forgot password?</p>
 
             {resetMessage && (
               <div style={{ color: "green", marginTop: "10px", fontSize: "0.9rem" }}>
